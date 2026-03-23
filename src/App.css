@@ -3,85 +3,93 @@
   display: flex;
   flex-direction: column;
   background: var(--bg-primary);
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 0 16px 40px;
+  padding: 0 20px 60px;
 }
 
 /* ── Header ── */
 .app-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  padding: 56px 4px 12px;
+  padding: 52px 0 20px;
 }
 
 .header-left {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 10px;
 }
 
 .app-title {
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   color: var(--text-primary);
+  line-height: 1;
 }
 
 .app-subtitle {
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 300;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   color: var(--text-secondary);
+  line-height: 1;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
+/* ── Assets Grid ── */
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  margin-top: 8px;
+}
+
+/* Center last row if odd number */
+.assets-grid > *:last-child:nth-child(odd) {
+  grid-column: 2;
 }
 
 /* ── Footer ── */
 .app-footer {
   display: flex;
   justify-content: space-between;
-  padding: 24px 4px 0;
-  font-size: 12px;
+  padding: 20px 4px 0;
+  font-size: 11px;
   color: var(--text-tertiary);
   border-top: 1px solid var(--separator);
-  margin-top: 32px;
+  margin-top: 20px;
+  letter-spacing: 0.2px;
 }
 
-/* ── Assets Grid ── */
-.assets-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2px;
-  background: var(--separator);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 4px;
-}
-
-.assets-grid > *:first-child {
-  border-top-left-radius: 16px;
-}
-.assets-grid > *:nth-child(2) {
-  border-top-right-radius: 16px;
-}
-
-@media (max-width: 680px) {
-  .app-header {
-    padding-top: 40px;
+@media (max-width: 900px) {
+  .assets-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+  .assets-grid > *:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
 
+@media (max-width: 600px) {
+  .app {
+    padding: 0 14px 40px;
+  }
+  .app-header {
+    padding-top: 36px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
   .app-title,
   .app-subtitle {
-    font-size: 26px;
+    font-size: 28px;
   }
-
   .assets-grid {
     grid-template-columns: 1fr;
+  }
+  .assets-grid > *:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 }

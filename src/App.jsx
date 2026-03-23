@@ -12,7 +12,7 @@ const INITIAL_ASSETS = [
     name: "Essence d'Arbre I",
     symbol: 'EA1',
     emoji: '🌿',
-    color: '#30d158',
+    color: '#32d74b',
     initialPrice: 10,
   },
   {
@@ -49,22 +49,31 @@ const INITIAL_ASSETS = [
   },
 ]
 
+const DEMO_HISTORIES = {
+  tree1:    [10, 11, 13, 12, 15, 17, null],
+  tree2:    [10, 12, 11, 13, 12, 14, null],
+  sun:      [10,  9, 11, 10, 12, 11, null],
+  water:    [10, 11, 12, 14, 13, 16, null],
+  mycelium: [10,  9,  8, 10, 12, 14, null],
+}
+
 function buildInitialPriceHistory(initialPrice) {
   return Array(TOTAL_ROUNDS).fill(null).map((_, i) =>
     i === 0 ? initialPrice : null
   )
 }
 
-function initializeState() {
+function initializeState(demo = false) {
   return INITIAL_ASSETS.map((asset) => ({
     ...asset,
-    priceHistory: buildInitialPriceHistory(asset.initialPrice),
-    currentRound: 1,
+    priceHistory: demo
+      ? DEMO_HISTORIES[asset.id]
+      : buildInitialPriceHistory(asset.initialPrice),
   }))
 }
 
 export default function App() {
-  const [assets, setAssets] = useState(initializeState)
+  const [assets, setAssets] = useState(() => initializeState(false))
   const [currentRound, setCurrentRound] = useState(1)
 
   const updatePrice = useCallback((assetId, delta) => {
