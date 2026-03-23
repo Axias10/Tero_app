@@ -1,0 +1,56 @@
+.round-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 4px 16px;
+}
+
+.round-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.round-pill {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  letter-spacing: 0.2px;
+}
+
+.round-pill:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.round-pill.past {
+  color: var(--text-secondary);
+  background: #2a2a2c;
+}
+
+.round-pill.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.reset-btn {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 149, 0, 0.12);
+  color: var(--accent-orange);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 149, 0, 0.22);
+}
