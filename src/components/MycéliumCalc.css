@@ -1,0 +1,130 @@
+.myc-calc {
+  background: rgba(191, 90, 242, 0.06);
+  border: 1px solid rgba(191, 90, 242, 0.15);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.myc-calc-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #bf5af2;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+}
+
+.myc-calc-icon {
+  font-size: 13px;
+}
+
+/* ── Inputs ── */
+.myc-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myc-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.myc-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.myc-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.myc-input {
+  width: 100%;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--bg-control);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  padding: 0 8px;
+  font-family: var(--font);
+  transition: border-color 0.15s ease;
+  -moz-appearance: textfield;
+}
+
+.myc-input::-webkit-outer-spin-button,
+.myc-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.myc-input:focus {
+  outline: none;
+  border-color: rgba(191, 90, 242, 0.4);
+}
+
+.myc-hint {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.myc-separator {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  padding-top: 14px;
+}
+
+/* ── Result ── */
+.myc-result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.myc-result {
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.3px;
+  transition: color 0.2s ease;
+}
+
+.myc-apply-btn {
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--bg-control);
+  transition: opacity 0.15s ease, background 0.2s ease;
+}
+
+.myc-apply-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.myc-apply-btn:not(:disabled):hover {
+  opacity: 0.85;
+}

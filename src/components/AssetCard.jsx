@@ -3,9 +3,9 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
-  Line,
   Tooltip,
 } from 'recharts'
+import MycéliumCalc from './MycéliumCalc'
 import './AssetCard.css'
 
 function CustomTooltip({ active, payload }) {
@@ -156,41 +156,21 @@ export default function AssetCard({ asset, currentRound, totalRounds, onUpdatePr
 
       {/* Price controls */}
       <div className="card-controls">
-        <div className="controls-row">
-          <button
-            className="ctrl-btn ctrl-minus2"
-            onClick={() => onUpdatePrice(id, -2)}
-            aria-label="−2"
-          >
-            −2
-          </button>
-          <button
-            className="ctrl-btn ctrl-minus1"
-            onClick={() => onUpdatePrice(id, -1)}
-            aria-label="−1"
-          >
-            −1
-          </button>
-
-          <div className="ctrl-price-display" style={{ color }}>
-            {currentPrice}
+        {id === 'mycelium' ? (
+          <MycéliumCalc
+            currentPrice={currentPrice}
+            color={color}
+            onApply={(delta) => onUpdatePrice(id, delta)}
+          />
+        ) : (
+          <div className="controls-row">
+            <button className="ctrl-btn ctrl-minus2" onClick={() => onUpdatePrice(id, -2)} aria-label="−2">−2</button>
+            <button className="ctrl-btn ctrl-minus1" onClick={() => onUpdatePrice(id, -1)} aria-label="−1">−1</button>
+            <div className="ctrl-price-display" style={{ color }}>{currentPrice}</div>
+            <button className="ctrl-btn ctrl-plus1"  onClick={() => onUpdatePrice(id, +1)} aria-label="+1">+1</button>
+            <button className="ctrl-btn ctrl-plus2"  onClick={() => onUpdatePrice(id, +2)} aria-label="+2">+2</button>
           </div>
-
-          <button
-            className="ctrl-btn ctrl-plus1"
-            onClick={() => onUpdatePrice(id, +1)}
-            aria-label="+1"
-          >
-            +1
-          </button>
-          <button
-            className="ctrl-btn ctrl-plus2"
-            onClick={() => onUpdatePrice(id, +2)}
-            aria-label="+2"
-          >
-            +2
-          </button>
-        </div>
+        )}
       </div>
     </div>
   )
