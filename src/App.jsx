@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import AssetCard from './components/AssetCard'
 import Timer from './components/Timer'
+import Dice from './components/Dice'
 import RoundControls from './components/RoundControls'
 import './App.css'
 
@@ -124,6 +125,7 @@ export default function App() {
           <p className="app-subtitle">Marchés</p>
         </div>
         <div className="header-right">
+          <Dice />
           <Timer />
         </div>
       </header>
