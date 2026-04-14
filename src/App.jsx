@@ -10,27 +10,27 @@ const TOTAL_ROUNDS = 7
 const INITIAL_ASSETS = [
   {
     id: 'tree1',
-    name: "Essence d'Arbre I",
-    symbol: 'EA1',
+    name: 'Sève des Lumichênes',
+    symbol: 'LUM',
     emoji: '🌿',
     color: '#32d74b',
-    initialPrice: 10,
+    initialPrice: 1,
   },
   {
     id: 'tree2',
-    name: "Essence d'Arbre II",
-    symbol: 'EA2',
+    name: 'Sève des Sirrococotier',
+    symbol: 'SIR',
     emoji: '🌳',
     color: '#34c759',
-    initialPrice: 10,
+    initialPrice: 1,
   },
   {
     id: 'sun',
-    name: 'Soleil',
+    name: 'Petit Soleil',
     symbol: 'SOL',
     emoji: '☀️',
     color: '#ff9f0a',
-    initialPrice: 10,
+    initialPrice: 3,
   },
   {
     id: 'water',
@@ -38,7 +38,7 @@ const INITIAL_ASSETS = [
     symbol: 'EAU',
     emoji: '💧',
     color: '#0a84ff',
-    initialPrice: 10,
+    initialPrice: 1,
   },
   {
     id: 'mycelium',
@@ -46,7 +46,7 @@ const INITIAL_ASSETS = [
     symbol: 'MYC',
     emoji: '🍄',
     color: '#bf5af2',
-    initialPrice: 10,
+    initialPrice: 5,
   },
 ]
 
@@ -83,7 +83,7 @@ export default function App() {
         if (asset.id !== assetId) return asset
         const newHistory = [...asset.priceHistory]
         const currentPrice = newHistory[currentRound - 1] ?? 0
-        const newPrice = Math.max(0, currentPrice + delta)
+        const newPrice = Math.max(1, currentPrice + delta)
         newHistory[currentRound - 1] = newPrice
         return { ...asset, priceHistory: newHistory }
       })
