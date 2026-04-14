@@ -3,6 +3,7 @@ import AssetCard from './components/AssetCard'
 import Timer from './components/Timer'
 import Dice from './components/Dice'
 import RoundControls from './components/RoundControls'
+import PriceSummary from './components/PriceSummary'
 import './App.css'
 
 const TOTAL_ROUNDS = 7
@@ -136,6 +137,8 @@ export default function App() {
         onRoundChange={goToRound}
         onReset={resetAll}
       />
+
+      <PriceSummary assets={assets} currentRound={currentRound} />
 
       <main className="assets-grid">
         {assets.map((asset) => (
