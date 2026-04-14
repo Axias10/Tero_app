@@ -59,6 +59,29 @@
   background: var(--text-primary);
 }
 
+.round-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.next-round-btn {
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.1);
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+  letter-spacing: 0.2px;
+}
+
+.next-round-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
 .reset-btn {
   height: 30px;
   padding: 0 14px;
@@ -67,7 +90,7 @@
   font-weight: 600;
   background: var(--bg-raised);
   color: var(--text-secondary);
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   flex-shrink: 0;
   letter-spacing: 0.2px;
 }
@@ -75,4 +98,16 @@
 .reset-btn:hover {
   background: var(--bg-control);
   color: var(--accent-orange);
+}
+
+.reset-btn.confirm {
+  background: rgba(255, 69, 58, 0.15);
+  color: #ff453a;
+  animation: shake-btn 0.4s ease;
+}
+
+@keyframes shake-btn {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-4px); }
+  75%       { transform: translateX(4px); }
 }
