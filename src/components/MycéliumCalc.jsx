@@ -5,20 +5,30 @@ export default function MycéliumCalc({ currentPrice, color, onApply }) {
   const [petrifeuilles, setPetrifeuilles] = useState('')
   const [myceliumsProd, setMyceliumsProd] = useState('')
 
-  const petrNum  = parseFloat(petrifeuilles) || 0
-  const mycNum   = parseFloat(myceliumsProd)  || 0
-  const equiv    = petrNum / 5
-
-  let delta = 0
-  let resultLabel = '— stable'
-  let resultColor = '#636366'
+  const petrNum  = parseInt(petrifeuilles) || 0
+  const mycNum   = parseInt(myceliumsProd)  || 0
+  // 5 Pétrifeuilles = 1 équivalent-Mycélium (arrondi à l'entier inférieur)
+  const equiv    = Math.floor(petrNum / 5)
 
   const hasValues = petrifeuilles !== '' || myceliumsProd !== ''
 
+  // delta proportionnel : équivalents - production
+  const delta = hasValues ? equiv - mycNum : 0
+
+  let resultLabel = '— stable'
+  let resultColor = '#636366'
+
   if (hasValues) {
-    if (equiv > mycNum)      { delta = +1; resultLabel = '↑ +1 pt'; resultColor = '#32d74b' }
-    else if (mycNum > equiv) { delta = -1; resultLabel = '↓ −1 pt'; resultColor = '#ff453a' }
-    else                     { delta =  0; resultLabel = '= stable'; resultColor = '#636366' }
+    if (delta > 0) {
+      resultLabel = `↑ +${delta} pt${delta > 1 ? 's' : ''}`
+      resultColor = '#32d74b'
+    } else if (delta < 0) {
+      resultLabel = `↓ ${delta} pt${Math.abs(delta) > 1 ? 's' : ''}`
+      resultColor = '#ff453a'
+    } else {
+      resultLabel = '= stable'
+      resultColor = '#636366'
+    }
   }
 
   const apply = () => {
@@ -47,7 +57,7 @@ export default function MycéliumCalc({ currentPrice, color, onApply }) {
               value={petrifeuilles}
               onChange={e => setPetrifeuilles(e.target.value)}
             />
-            <span className="myc-hint">÷ 5 = {petrNum > 0 ? (equiv % 1 === 0 ? equiv : equiv.toFixed(1)) : '—'}</span>
+            <span className="myc-hint">÷ 5 = {petrNum > 0 ? `${equiv} éq.` : '—'}</span>
           </div>
         </div>
 
