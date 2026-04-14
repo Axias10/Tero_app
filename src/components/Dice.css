@@ -151,3 +151,22 @@
   font-variant-numeric: tabular-nums;
   transition: opacity 0.3s ease;
 }
+
+.history-clear {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.history-clear:hover {
+  background: rgba(255, 69, 58, 0.12);
+  color: var(--accent-red);
+}

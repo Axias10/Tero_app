@@ -113,6 +113,13 @@ export default function Dice() {
               {v}
             </span>
           ))}
+          <button
+            className="history-clear"
+            onClick={() => { setHistory([]); setValue(null) }}
+            title="Effacer l'historique"
+          >
+            ↺
+          </button>
         </div>
       )}
     </div>
