@@ -6,6 +6,7 @@ import {
   Tooltip,
 } from 'recharts'
 import MycéliumCalc from './MycéliumCalc'
+import SèveCalc from './SèveCalc'
 import './AssetCard.css'
 
 function CustomTooltip({ active, payload }) {
@@ -159,6 +160,11 @@ export default function AssetCard({ asset, currentRound, totalRounds, onUpdatePr
         {id === 'mycelium' ? (
           <MycéliumCalc
             currentPrice={currentPrice}
+            color={color}
+            onApply={(delta) => onUpdatePrice(id, delta)}
+          />
+        ) : (id === 'tree1' || id === 'tree2') ? (
+          <SèveCalc
             color={color}
             onApply={(delta) => onUpdatePrice(id, delta)}
           />
